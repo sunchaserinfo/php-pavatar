@@ -1,0 +1,16 @@
+{
+	"name": "sunchaser/pavatar",
+	"authors": [
+		{
+			"name": "Keith Bowes",
+			"email": "zooplah@users.sourceforge.net"
+		},
+		{
+			"name": "Christian Archer",
+			"email": "chrstnarchr@aol.com"
+		}
+	],
+	"autoload": {
+		"classmap": ["src/"]
+	}
+}
