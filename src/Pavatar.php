@@ -38,7 +38,7 @@ class Pavatar
 		return self::$method;
 	}
 
-	public static function getPavatarFrom($url)
+	private static function getPavatarFrom($url)
 	{
 		global $_pavatar_mime_type;
 		$_url = '';
@@ -125,7 +125,7 @@ class Pavatar
 		return $_url;
 	}
 
-	public static function getHeaders($url)
+	private static function getHeaders($url)
 	{
 		$ret = NULL;
 
@@ -143,7 +143,7 @@ class Pavatar
 		return $ret;
 	}
 
-	public static function getUrlContents($url)
+	private static function getUrlContents($url)
 	{
 		global $_pavatar_mime_type;
 
@@ -197,7 +197,7 @@ class Pavatar
 		return $ret;
 	}
 
-	public static function getDirectUrl($url, & $exists, $add_suffix = true)
+	private static function getDirectUrl($url, & $exists, $add_suffix = true)
 	{
 		$_url = $url;
 		if ($add_suffix)
