@@ -1,6 +1,7 @@
 {
 	"name": "sunchaser/pavatar",
 	"description": "Allows embedding pavatars in PHP applications",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Keith Bowes",
