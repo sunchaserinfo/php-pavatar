@@ -1,5 +1,6 @@
 {
 	"name": "sunchaser/pavatar",
+	"description": "Allows embedding pavatars in PHP applications",
 	"authors": [
 		{
 			"name": "Keith Bowes",
