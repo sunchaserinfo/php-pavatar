@@ -1,18 +1,18 @@
 {
-	"name": "sunchaser/pavatar",
-	"description": "Allows embedding pavatars in PHP applications",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Keith Bowes",
-			"email": "zooplah@users.sourceforge.net"
-		},
-		{
-			"name": "Christian Archer",
-			"email": "chrstnarchr@aol.com"
-		}
-	],
-	"autoload": {
-		"classmap": ["src/"]
-	}
+    "name": "sunchaser/pavatar",
+    "description": "Allows embedding pavatars in PHP applications",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Keith Bowes",
+            "email": "zooplah@users.sourceforge.net"
+        },
+        {
+            "name": "Christian Archer",
+            "email": "chrstnarchr@aol.com"
+        }
+    ],
+    "autoload": {
+        "classmap": ["src/"]
+    }
 }
