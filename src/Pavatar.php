@@ -1,21 +1,23 @@
 <?php
+namespace SunChaser\Pavatar;
+
 /**
  * Class Pavatar
- * @license http://creativecommons.org/publicdomain/zero/1.0/legalcode
+ * @license http://creativecommons.org/publicdomain/zero/1.0/legalcode Creative Commons Zero
  */
 
 class Pavatar
 {
-    const METHOD_NOTFOUND   = 0;
-    const METHOD_HEADER     = 1;
-    const METHOD_HTML_LINK  = 2;
-    const METHOD_HTML_META  = 3;
-    const METHOD_DIRECT     = 4;
-    const METHOD_FAILURE    = 5;
+    const METHOD_NOTFOUND   = 'not found';
+    const METHOD_HEADER     = 'header';
+    const METHOD_HTML_LINK  = 'html link';
+    const METHOD_HTML_META  = 'html meta tag';
+    const METHOD_DIRECT     = 'direct link';
+    const METHOD_FAILURE    = 'failure';
 
     private static $method;
 
-    public static function Discover($url)
+    public static function discover($url)
     {
         if (strpos($url, '://') === false) {
             $url = 'http://'. $url;
@@ -34,7 +36,7 @@ class Pavatar
         return $avatar;
     }
 
-    public static function GetLastMethod()
+    public static function getLastMethod()
     {
         return self::$method;
     }
@@ -48,15 +50,15 @@ class Pavatar
             $testurl = $url;
             do {
                 $headers = self::getHeaders($testurl);
-                $_url = @$headers['x-pavatar'];
+                $_url = isset($headers['x-pavatar']) ? $headers['x-pavatar'] : null;
                 self::$method = self::METHOD_HEADER;
-                $testurl = @$headers['location'];
+                $testurl = isset($headers['location']) ? $headers['location'] : null;
             } while (!$_url && $testurl);
         }
 
         if (!$_url && $url) {
             if (class_exists('DOMDocument')) {
-                $dom = new DOMDocument();
+                $dom = new \DOMDocument();
                 if (@$dom->loadHTML(self::getUrlContents($url))) {
                     $links = $dom->getElementsByTagName('link');
                     $metas = $dom->getElementsByTagName('meta');
@@ -140,16 +142,16 @@ class Pavatar
 
         do {
             $headers = self::getHeaders($url);
-            if (@$headers['location']) {
+            if (!empty($headers['location'])) {
                 $url = $headers['location'];
             }
-        } while (@$headers['location']);
+        } while (!empty($headers['location']));
 
         $urlp = parse_url($url);
         if (empty($urlp['port']))
             $urlp['port'] = 80;
 
-        if (!@$urlp['path']) {
+        if (empty($urlp['path'])) {
             $urlp['path'] = '/';
         }
 

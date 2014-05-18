@@ -12,7 +12,13 @@
             "email": "chrstnarchr@aol.com"
         }
     ],
+    "require": {
+        "php": ">= 5.3.3",
+        "ext-dom": "*"
+    },
     "autoload": {
-        "classmap": ["src/"]
+        "psr-4": {
+            "SunChaser\\Pavatar\\": "src/"
+        }
     }
 }
