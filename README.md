@@ -1,6 +1,6 @@
 # Pavatar
 
-This PHP library implements [Pavatar](http://www.pavatar.com/) an open specification for a decentralized way of
+This PHP library implements [Pavatar](https://github.com/pavatar/pavatar) an open specification for a decentralized way of
 including avatars (user-defined images, such as photos) in web applications.
 
 ## Thanks To
